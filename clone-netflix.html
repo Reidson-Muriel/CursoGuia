@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>ReidsonFlix</title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(113, 0, 10, 1) 57%, rgba(0, 0, 0, 1) 100%);
+            color: white;
+            margin: auto;
+            padding: 0;
+        }
+
+        .menu {
+            background-color: #2F4F4F;
+            padding: 5px;
+        }
+
+        .menu ul {
+            text-decoration: none;
+            list-style: none;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: space-evenly;
+            cursor: pointer;
+        }
+
+        .menu li {
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+
+        .menu li:hover {
+            border-bottom: 5px solid green;
+            padding-bottom: 3px;
+            padding: 10px;
+        }
+
+        .dropdown-menu {
+            background-color: black;
+             margin-right: 30%;
+            margin-left: -30%;
+            color: white;
+        }
+
+        h1 {
+            margin-left: 20px;
+            font-size: 50px;
+        }
+
+        .title {
+            color: red;
+            animation: slidein 3s infinite alternate;
+            animation-name: slidein;
+        }
+
+        @keyframes slidein {
+            from {
+                margin-left: 50%;
+                width: 100%;
+            }
+
+            to {
+                margin-left: 0;
+                width: 100%;
+            }
+
+        }
+
+        .caixa {
+            background-color: red;
+            border: none;
+            border-radius: 15px;
+            width: 300px;
+            height: 30px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .textbusca {
+            float: left;
+            padding-left: 15px;
+            font-style: italic;
+            font-size: 18px;
+            border-radius: 15px 0 0 15px;
+            height: 30px;
+            width: 260px;
+            outline: none;
+            box-shadow: none;
+            background-color: #2F4F4F;
+        }
+
+        .btnBusca {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        img {
+            position: relative;
+            overflow-y: auto;
+            top: 5px;
+            width: 20px;
+            right: 0;
+        }
+
+        .secao4 {
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+        }
+
+        .secao4-div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .filme {
+            flex-direction: column;
+            align-items: center;
+            width: calc(100% / 3.5 - 90px);
+            margin: 5px;
+            background-color: transparent;
+            transition: all 0.5s ease;
+        }
+
+        .filme:hover {
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        .filme img {
+            width: 100%;
+            height: 70%;
+            border-radius: 15px;
+        }
+
+        .filme h3 {
+            margin-bottom: 0px;
+        }
+
+        @media (max-width: 768px) {
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .caixa {
+                width: 80%;
+                margin: 10px auto;
+            }
+
+            .filme {
+                width: calc(100% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 35px;
+                text-align: center;
+            }
+
+            .menu li {
+                font-size: 18px;
+            }
+
+            .secao4-div {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filme {
+                width: calc(100% - 20px);
+                margin: 10px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="menu">
+        <ul>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">Home</a>
+                <div class="dropdown-menu">
+                    <a style="color: white; margin-left: 39px; text-decoration: none; ">Categoria</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Ação</a>
+                    <a class="dropdown-item" href="#">Comédia</a>
+                    <a class="dropdown-item" href="#">Terror</a>
+                    <a class="dropdown-item" href="#">Drama</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">Sobre</a>
+                <div class="dropdown-menu">
+                    <a style="color: white; margin-left: 39px; text-decoration: none;">Sobre</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">ReidFlix é um serviço de<br>streaming de filmes online<br>que oferece uma ampla<br>seleção de filmes para<br>assistir.</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">Contato</a>
+                <div class="dropdown-menu">
+                    <a style="color: white; margin-left: 39px; text-decoration: none;">Telefone</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">(00) 9999-9999</a>
+                    <a class="dropdown-item" href="#">nome@gmail.com</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="principal">
+        <h1><span class="title">Reid</span>Flix</h1>
+        <div class="caixa">
+            <input type="text" id="searchbarra" class="textbusca" onkeyup="search()" placeholder="Buscar">
+            <img src="img/search1.png" class="btnBusca" alt="Buscar">
+            <ul id="resultado-busca"></ul>
+        </div>
+        <section class="secao4" id="sobre">
+            <div class="secao4-div">
+                <div class="filme">
+                    <a href="Detalhar-Matrix.html">
+                        <img decoding="async" src="img/matrixnovo.png">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-Homemaranha.html">
+                    <img decoding="async" src="img/aranha.jpg">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-harrypotter.html">
+                    <img decoding="async" src="img/harrypotter.jpg">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-captain.html">
+                    <img src="img/captain.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-homemferro.html">
+                    <img src="img/homemferro.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-spirit.html">
+                    <img src="img/spirit.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-divertida.html">
+                    <img src="img/divertida.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-Felicidade.html">
+                    <img src="img/will.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-ligajustica.html">
+                    <img src="img/ligafl.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-superman.html">
+                    <img src="img/superman.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-Mrrobot.html">
+                    <img src="img/robot.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-imiação.html">
+                    <img src="img/jogoiminta.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-teoria.html">
+                    <img src="img/A-teoria-de-tudo.png" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-elemental.html">
+                    <img src="img/elemento.jpeg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-poder.html">
+                    <img src="img/fist.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-Gigante.html">
+                    <img src="img/gigante-de-aco.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-jobs.html">
+                    <img src="img/jobs.jpg" alt="">
+                    </a>
+                </div>
+                <div class="filme">
+                    <a href="Detalhar-batman.html">
+                    <img src="img/batman.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer style="background-color: #2F4F4F; color: white; text-align: center; padding: 10px;">&copy; 2024 ReidFlix. Criado por 👨‍💻reidson muriel.</footer>
+
+    <script>
+        // Buscar a pesquisa 
+        function search() {
+            let input = document.getElementById('searchbarra').value.toLowerCase();
+            let x = document.getElementsByClassName('filme');
+
+            for (let i = 0; i < x.length; i++) {
+                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    x[i].style.display = "none";
+                } else {
+                    x[i].style.display = "block";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
