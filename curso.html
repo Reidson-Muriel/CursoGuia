@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="shortcut icon" href="img/icons.ico" type="image/x-icon">
     <title>Reidson-Muriel</title>
     <style>
@@ -11,162 +12,254 @@
             background-color: black;
             color: white;
             font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         nav {
             background-color: blue;
             color: #141212;
             border: 4px solid rgb(4, 4, 84);
-            height: 29vh;
+            padding: 34px;
             border-radius: 22px 22px 0px 0px;
+            text-align: center;
         }
 
         .nav img {
-            margin-left: 20px;
-            margin-top: 58px;
+            margin-top: 10px;
+            width: 120px;
+            border-radius: 50%;
         }
 
         .nav h1 {
-            align-items: center;
-            font-size: 30px;
-            margin-left: 16%;
-            margin-top: -15%;
+            font-size: 28px;
+            margin-top: 10px;
         }
 
-        .nav h2,
-        p {
-            margin-left: 15%;
+        .nav h2 {
+            margin-top: 5px;
+            font-size: 22px;
+        }
 
+        .nav p {
+            margin-top: 0;
+            font-size: 16px;
+            color: #cccccc;
+        }
+
+        .social {
+            margin-top: 15px;
         }
 
         .social ul {
             display: flex;
+            justify-content: center;
             list-style: none;
-            margin-top: -100px;
-            margin-left: 100vh;
+            padding: 0;
         }
 
         .social li {
-            margin-right: 20px;
+            margin: 0 10px;
         }
 
         .social li img {
-            width: 60px;
+            width: 40px;
         }
 
         .social li img:hover {
-            filter: brightness(0.2) contrast(0.9);
-            background-color: transparent;
-            transition: all 0.1s ease-in-out;
+            filter: brightness(0.2);
+            transition: all 0.3s ease;
         }
 
+        /* Ajuste na imagem de fundo */
         .page-1 {
-            position: relative;
             background-image: url(img/codeimg.jpg);
             background-size: cover;
-            opacity: 10%;
+            background-repeat: no-repeat;
+            background-position: center;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh; /* Altura mínima para cobrir toda a tela */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza o conteúdo verticalmente */
+            align-items: center; /* Centraliza o conteúdo horizontalmente */
+            opacity: 0.9;
         }
 
         section {
-            position: absolute;
             display: flex;
-            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px; /* Ajuste de espaçamento para separar da nav */
+            position: relative;
+            z-index: 1;
+        }
+
+        section .page {
+            margin: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            width: calc(100% - 40px);
+            max-width: 300px;
         }
 
         section img {
-            width: 80%;
-            margin-left: 20px;
-            margin-right: 20px;
-            margin-top: auto;
+            width: 100%;
             cursor: pointer;
             transition: transform 0.5s ease;
         }
 
         section img:hover {
             transform: scale(1.1);
-
         }
 
         section h3 {
-            font-size: 18px;
-            text-align: center;
             margin-top: 10px;
+            font-size: 18px;
+            color: white;
         }
 
-        section a {
-            text-decoration: none;
-            color: inherit;
+        section button {
+            background-color: white;
+            color: black;
+            margin-top: 10px;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        section .page {
-            margin-top: -64%;
+        section button:hover {
+            background-color: transparent;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Estilos para dispositivos desktop */
+        @media (min-width: 1024px) {
+            .page-1 {
+                height: 100vh;
+            }
+
+            section {
+                margin-top: 230px; /* Ajuste para melhorar a centralização */
+            }
+
+            section .page {
+                margin: 10px;
+                width: calc(100% - 100px);
+            }
+        }
+
+        /* Estilos para tablets */
+        @media (max-width: 1024px) and (min-width: 768px) {
+            .page-1 {
+                height: 80vh;
+            }
+
+            section .page {
+                width: calc(33% - 40px);
+            }
+        }
+
+        /* Estilos para smartphones */
+        @media (max-width: 768px) {
+            .page-1 {
+                height: auto;
+                padding-bottom: 20px;
+            }
+
+            section {
+                margin-top: 0;
+            }
+
+            section .page {
+                width: calc(100% - 24px);
+            }
         }
     </style>
 </head>
 
 <body>
     <nav class="nav">
-        <img src="img/icons.ico">
         <h1>Aprenda com Projetos: Seu Guia de Programação</h1>
-        <h2 style="color: white;"><span style="color: rgb(10, 217, 10);">Reidson</span> Muriel</h2>
-        <p style="margin-top: -24px; 
-                  color: #151515;
-                  margin-right: 30%;"><span style="color: rgb(115, 11, 11);">Desenvolvedor de Software</span></p>
+        <img src="img/icons.ico" alt="Reidson Muriel">
+        <h2><span style="color: rgb(10, 217, 10);">Reidson</span> Muriel</h2>
+        <p>Desenvolvedor de Software</p>
         <div class="social">
             <ul>
                 <li>
                     <a href="https://www.instagram.com/reidson_muriel/">
-                        <img src="img/icoInstagram.png">
+                        <img src="img/icoInstagram.png" alt="Instagram">
                     </a>
                 </li>
                 <li>
-                    <a
-                        href="https://www.linkedin.com/in/reidson-muriel-alves-romão-da-silva-357b3a27a/?originalSubdomain=br">
-                        <img src="img/linkedin.png">
+                    <a href="https://www.linkedin.com/in/reidson-muriel-alves-romão-da-silva-357b3a27a/?originalSubdomain=br">
+                        <img src="img/linkedin.png" alt="LinkedIn">
                     </a>
                 </li>
                 <li>
                     <a href="https://github.com/Reidson-Muriel">
-                        <img src="img/github.png">
+                        <img src="img/github.png" alt="GitHub">
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="page-1"></div>
+    <div class="page-1">
+        <section id="curso">
+            <div class="page">
+                <h3>Cadastro Simples</h3>
+                <a href="cadastro.html" target="_blank">
+                    <img src="img/Cadastro.png" alt="Cadastro Simples">
+                </a>
+                <button onclick="cadastro()">Visualizar Guia Completo</button>
+            </div>
+            
+            <div class="page">
+                <h3>Clone Netflix</h3>
+                <a href="clone-netflix.html">
+                    <img src="img/Clone-Netflix.png" alt="Clone Netflix">
+                </a>
+                <button onclick="clonenetflix()">Visualizar Guia Completo</button>
+            </div>
+            
+            <div class="page">
+                <h3>Projeto-Portfolio</h3>
+                <a href="projeto-portfolio.html">
+                    <img src="img/tela_do_projeto.png" alt="Projeto Portfolio">
+                </a>
+                <button onclick="projeto-portfolio()">Visualizar Guia Completo</button>
+            </div>
+            
+            <div class="page">
+                <h3>Gerador-Senha</h3>
+                <a href="gerador-senha.html">
+                    <img src="img/tela-Gerador de Senha.png" alt="Gerador de Senha">
+                </a>
+                <button onclick="gerador-senha()">Visualizar Guia Completo</button>
+            </div>
+        </section>
+    </div>
 
-    <section id="curso" onclick="curso()">
-        <div class="page">
-            <h3>Cadastro Simples</h3>
-            <a href="cadastro.html" target="_blank">
-                <img src="img/Cadastro.png" />
-            </a>
-        </div>
-
-        <div class="page">
-            <h3>Clone Netflix</h3>
-            <a href="clone-netflix.html">
-                <img src="img/Clone-Netflix.png">
-            </a>
-        </div>
-
-        <div class="page">
-            <h3>Projeto-Portfolio</h3>
-            <a href="http://127.0.0.1:3000/projeto-portfolio.html">
-                <img style="margin-top: 10px;" src="img/tela_do_projeto.png">
-            </a>
-        </div>
-
-    </section>
 </body>
+
 <script>
-    document.getElementById('curso').value
-    function curso(){
+    function cadastro() {
+        alert('Ótima escolha!');
+        window.location.href = 'cadastroTutorial.html';
+    }
+
+    function clonenetflix() {
         alert('Ótima escolha!');
     }
+
+    $('#curso').click(function () {
+        alert('Este projeto oferece uma construção mais fácil!\nUsando Html, Css e Js entre outras.');
+    });
 </script>
 
 </html>

@@ -1,16 +1,206 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro-Simples</title>
+    <title>Cadastro de lista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('img/fundoimg.jpg');
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            background-size: cover;
+            height: 100vh;
+            font-family: 'Inter', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .form {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form label {
+            color: white;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 800px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid white;
+            padding: 8px;
+        }
+
+        .table th {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .table td {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-edit {
+            margin-right: 5px;
+
+
+        }
+    </style>
 </head>
+
 <body>
-    <div id="cadastro">     
-            <img src="img/cadastro.png" alt="">
-    </div>    
+    <div class="container">
+        <div class="form mb-3">
+            <h3 style="text-align: center;">Cadastro</h3>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" class="form-control" placeholder="Digite o seu nome"><br>
+            <label for="matricula">Matrícula:</label>
+            <input type="number" id="matricula" class="form-control" placeholder="Digite a sua matrícula"><br>
+            <label for="turma">Turma:</label>
+            <input type="text" id="turma" class="form-control" placeholder="Digite a turma"><br>
+
+            <button type="button" class="btn btn-outline-info btn-block" onclick="cadastrar()">Cadastrar</button>
+            <button type="button" class="btn btn-outline-success btn-block" onclick="salvarEdicao()"
+                style="display: none;">Salvar Edição</button>
+        </div>
+
+        <div class="table-container">
+            <table class="table table-striped table-responsive">
+                <h3 style="text-align: center;">Lista de Cadastro</h3>
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Matrícula</th>
+                        <th scope="col">Turma</th>
+                        <th scope="col">Opções</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let dados = [];
+        let proximoId = 1;
+        let itemEditando = null;
+
+        listarDados();
+
+        function cadastrar() {
+            let nome = document.getElementById("nome").value;
+            let matricula = document.getElementById("matricula").value;
+            let turma = document.getElementById("turma").value;
+
+            dados.push({ id: proximoId, nome, matricula, turma });
+            proximoId++;
+
+            limparCampos();
+            listarDados();
+        }
+
+        function listarDados() {
+            let tbody = document.getElementById("tbody");
+            tbody.innerHTML = "";
+
+            dados.forEach((item, index) => {
+                let tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.nome}</td>
+                    <td>${item.matricula}</td>
+                    <td>${item.turma}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-edit" onclick="editar(${item.id})">Editar</button>
+                        <button type="button" class="btn btn-outline-danger" onclick="excluir(${item.id})">Excluir</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function editar(id) {
+            itemEditando = dados.find((item) => item.id === id);
+            if (itemEditando) {
+                document.getElementById("nome").value = itemEditando.nome;
+                document.getElementById("matricula").value = itemEditando.matricula;
+                document.getElementById("turma").value = itemEditando.turma;
+
+                // Esconder o botão de cadastrar e mostrar o de salvar edição
+                document.querySelector('.btn-block').style.display = 'none';
+                document.querySelector('.btn-outline-success').style.display = 'block';
+            }
+        }
+
+        function salvarEdicao() {
+            if (itemEditando) {
+                itemEditando.nome = document.getElementById("nome").value;
+                itemEditando.matricula = document.getElementById("matricula").value;
+                itemEditando.turma = document.getElementById("turma").value;
+
+                itemEditando = null;
+
+                limparCampos();
+                listarDados();
+
+                // Mostrar o botão de cadastrar e esconder o de salvar edição
+                document.querySelector('.btn-block').style.display = 'block';
+                document.querySelector('.btn-outline-success').style.display = 'none';
+            }
+        }
+
+        function excluir(id) {
+            dados = dados.filter((item) => item.id !== id);
+            // Reorganizar os IDs sequencialmente
+            dados.forEach((item, index) => {
+                item.id = index + 1;
+            });
+            proximoId = dados.length + 1; // Atualizar o próximo ID disponível
+            listarDados();
+        }
+
+
+        function limparCampos() {
+            document.getElementById("nome").value = "";
+            document.getElementById("matricula").value = "";
+            document.getElementById("turma").value = "";
+        }
+    </script>
+
 </body>
-<script>
-    
-</script>
+
 </html>
