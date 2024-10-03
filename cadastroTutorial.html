@@ -25,10 +25,10 @@
     }
 
     .menu span {
-        animation: fadeInAndMove 5s ease-in-out infinite alternate; 
+        animation: fadeInAndMove 5s ease-in-out infinite alternate;
     }
 
-    .linguagem  {
+    .linguagem {
         color: red;
         /* Adiciona a animação ao span com a classe linguagem */
         animation: fadeInAndMove 0.1s ease-in-out infinite alternate;
@@ -49,6 +49,7 @@
             opacity: .2;
             transform: translateY(0);
         }
+
         100% {
             opacity: 4;
             transform: translateY(0);
@@ -58,19 +59,77 @@
 
 <body>
     <nav class="menu">
-        <h2>Como criar <span style="color: blue;">Cadastro Simples</span><br>Apenas <span class="linguagem">Html</span> , <span class="linguagemCss">Css</span> e
-            <span class="linguagemJs">Js.</span></h2>
-           <p style="font-size: 18px; margin-left: 30px;">Vamos explicar o código HTML, CSS e JavaScript, passo a passo.O objetivo é criar um formulário de cadastro simples que permite<br> adicionar, editar e excluir entradas de uma lista.</p> 
+        <h2>Como criar <span style="color: blue;">Cadastro Simples</span><br>Apenas <span class="linguagem">Html</span>
+            , <span class="linguagemCss">Css</span> e
+            <span class="linguagemJs">Js.</span>
+        </h2>
+        <p style="font-size: 18px; margin-left: 30px;">Vamos explicar o código HTML, CSS e JavaScript, passo a passo.O
+            objetivo é criar um formulário de cadastro simples que permite<br> adicionar, editar e excluir entradas de
+            uma lista.</p>
     </nav>
     <div class="paginaGuia">
+        <br>
+        <h2 style="margin-left: 38%;">HTML</h2>
         <h3 style="margin-left: 10px;"><u>Estrutura do Código</u></h3>
-    <ul>
-        <p><u>&bull; HTML:</u> Define a estrutura da página.</p>
-        <p><u>&bull; CSS:</u> Estiliza a aparência da página.</p>
-        <p><u>&bull; JavaScript:</u> Implementa a lógica para interatividade (adicionar, editar e excluir).</p>
+        <ul>
+            <p><u>&bull; HTML:</u> Define a estrutura da página.</p>
+            <p><u>&bull; CSS:</u> Estiliza a aparência da página.</p>
+            <p><u>&bull; JavaScript:</u> Implementa a lógica para interatividade (adicionar, editar e excluir).</p>
+        </ul>
+        <br>
+        <h3 style="margin-left: 10px;"><u>Análise do Código</u></h3>
+        <p style="margin-left: 36%;">Estrutura HTML</p>
+        <img style="width: 90%; margin-left: 21px; margin-right: 21px;" src="img/codeCadastrohtml.png">
+        <h3 style="margin-left: 10px;"><u>Detalhamento</u></h3>
+        <p style="margin-left: 10px;">Na tags <u>"head"</u></p>
+        <ul>
+        <p>&bull; Meta Tags: Definem a codificação de caracteres (UTF-8) e a responsividade da página.</p>
+        <p>&bull; Título: Define o título que aparecerá na aba do navegador.</p>
+        <p>&bull; Bootstrap: Uma biblioteca CSS que facilita a estilização. O link incluído fornece acesso à versão 4.1.3 do Bootstrap.<link https://getbootstrap.com.br/docs/4.1/getting-started/introduction/></p>
+        <p>&bull; Estilos personalizados: São definidos na tag <u>"style"</u>, permitindo que você estilize elementos da página conforme necessário.</p>
     </ul>
-    <h3>Análise do Código</h3>
-        <img style="width: 90%; text-align: center;" src="img/codeCadastrohtml.png">
+    <p style="margin-left: 10px;">Na tags "body".</p>
+    <ul>
+        <p>&bull; Container: Um <div> que centraliza o conteúdo e aplica margens e preenchimentos.</p>
+            <h4 style="margin-left: 10px;">Formulário de Cadastro</h4>
+            <p>&bull; Labels e Inputs: Cada campo do formulário (Nome, Matrícula e Turma) é definido com um rótulo e um campo de entrada ("input").</p>
+        </ul>
+        <h4 style="margin-left: 10px;">Botões</h4>
+        <ul>
+            <p>&bull; Cadastrar: Chama a função cadastrar() para adicionar um novo item.</p>
+            <p>&bull; Salvar Edição: Chama a função salvarEdicao() e inicialmente está oculto.</p>
+        </ul>
+        <h4 style="margin-left: 10px;">Tabela de Cadastro</h4>
+        <ul>
+            <p>&bull; Tabela: Mostra os dados cadastrados com colunas para Id, Nome, Matrícula, Turma e Opções.</p>
+            <p>&bull; tbody: Onde os dados serão dinamicamente inseridos.</p>
+        </ul>
+        <h2 style="margin-left: 38%;">CSS</h2>
+        <img style="width: 90%; margin-left: 21px; margin-right: 21px;" src="img/codeCadastroCss.png">
+        <ul>
+            <p>&bull; Corpo da Página: Define um fundo com uma imagem, texto branco e centraliza o conteúdo.</p>
+            <p>&bull; Formulário: Tem um fundo levemente transparente, com bordas arredondadas.</p>
+            <p>&bull; Tabela: Define a aparência da tabela e das células.</p>
+        </ul>
+        <h2 style="margin-left: 32%;">JavaScript</h2>
+        <img style="width: 90%; margin-left: 21px;" src="img/codeCadastroJs.png">
+        <h4 style="margin-left: 10px;">Variáveis</h4>
+        <ul>
+            <p>&bull; dados: Array que armazena os itens cadastrados.</p>
+            <p>&bull; proximoId: Mantém o controle do próximo ID a ser atribuído.</p>
+            <p>&bull; itemEditando: Armazena o item que está sendo editado.</p>
+        </ul>
+        <h4 style="margin-left: 10px;">Funções</h4>
+        <ul>
+            <p>&bull; cadastrar(): Coleta dados do formulário, cria um novo item e o adiciona ao array dados.</p>
+            <p>&bull; listarDados(): Atualiza a tabela com os dados do array dados.</p>
+            <p>&bull; editar(id): Carrega os dados do item selecionado para edição.</p>
+            <p>&bull; salvarEdicao(): Salva as alterações feitas em um item existente.</p>
+            <p>&bull; excluir(id): Remove um item do array dados e atualiza a tabela.</p>
+            <p>&bull; limparCampos(): Limpa os campos do formulário após a operação de cadastro ou edição.</p>
+        </ul>
+        <h2 style="margin-left: 10px;">Conclusão</h2>
+        <p>Esse código cria um sistema básico de cadastro que permite adicionar, editar e excluir registros de uma lista. A utilização do Bootstrap facilita a criação de uma interface responsiva e esteticamente agradável.</p>
     </div>
 
 </body>
