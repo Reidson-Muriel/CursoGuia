@@ -1,13 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/Cadastro.ico" type="image/x-icon">
     <title>Tutorial</title>
 </head>
+<style>
+    body {
+        background-color: #090909;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu h2 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .menu {
+        color: white;
+    }
+
+    .menu span {
+        animation: fadeInAndMove 5s ease-in-out infinite alternate; 
+    }
+
+    .linguagem  {
+        color: red;
+        /* Adiciona a animação ao span com a classe linguagem */
+        animation: fadeInAndMove 0.1s ease-in-out infinite alternate;
+    }
+
+    .linguagemCss {
+        color: rgb(0, 153, 255);
+        animation: fadeInAndMove 5s ease-in-out infinite alternate;
+    }
+
+    .linguagemJs {
+        color: yellow;
+    }
+
+    /* Define a animação */
+    @keyframes fadeInAndMove {
+        0% {
+            opacity: .2;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 4;
+            transform: translateY(0);
+        }
+    }
+</style>
+
 <body>
-    <h2>Como criar <u>Cadastro Simples</u></h2>
-    <br>
-    <
+    <nav class="menu">
+        <h2>Como criar <span style="color: blue;">Cadastro Simples</span><br>Apenas <span class="linguagem">Html</span> , <span class="linguagemCss">Css</span> e
+            <span class="linguagemJs">Js.</span></h2>
+           <p style="font-size: 18px; margin-left: 30px;">Vamos explicar o código HTML, CSS e JavaScript, passo a passo.O objetivo é criar um formulário de cadastro simples que permite<br> adicionar, editar e excluir entradas de uma lista.</p> 
+    </nav>
+    <div class="paginaGuia">
+        <h3 style="margin-left: 10px;"><u>Estrutura do Código</u></h3>
+    <ul>
+        <p><u>&bull; HTML:</u> Define a estrutura da página.</p>
+        <p><u>&bull; CSS:</u> Estiliza a aparência da página.</p>
+        <p><u>&bull; JavaScript:</u> Implementa a lógica para interatividade (adicionar, editar e excluir).</p>
+    </ul>
+    <h3>Análise do Código</h3>
+        <img style="width: 90%; text-align: center;" src="img/codeCadastrohtml.png">
+    </div>
+
 </body>
+
 </html>
