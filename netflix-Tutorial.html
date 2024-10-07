@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/Cadastro.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/tela-clone-netflix.icon" type="image/x-icon">
     <title>Tutorial-Clone-netflix</title>
 </head>
 <style>
@@ -17,23 +17,25 @@
 
     nav .title {
         color: red;
+        animation: fadeInAndMove 5s ease-in-out infinite alternate;
     }
 
-    nav .linguagem {
+    .linguagem {
         color: red;
-        animation: fadeInAndMove 0.1s ease-in-out infinite alternate;
+        animation: fadeInAndMove 5s ease-in-out infinite alternate;
     }
 
-    nav .linguagemCss {
+    .linguagemCss {
         color: rgb(0, 153, 255);
         animation: fadeInAndMove 5s ease-in-out infinite alternate;
     }
 
     .linguagemJs {
         color: yellow;
+        animation: fadeInAndMove 5s ease-in-out infinite alternate;
     }
 
-    
+
     @keyframes fadeInAndMove {
         0% {
             opacity: .2;
@@ -49,9 +51,53 @@
 
 <body>
     <nav>
-        <h2 style="margin-left: 5px;">Como criar um <span class="title">Clone-Netflix</span> em <span class="linguagem">HTML</span> , <span
-                class="linguagemCss">CSS</span> e <span class="linguagemJs">Js</span>.</h2>
+        <h2 style="margin-left: 0; text-align: center;">Como criar um <span class="title">Clone-Netflix</span> em <span
+                class="linguagem">HTML</span> , <span class="linguagemCss">CSS</span> e <span
+                class="linguagemJs">Js</span>.</h2>
+        <p style="font-size: 18px; margin-left: 30px;">Vamos explicar o código HTML, CSS e JavaScript, passo a passo.O
+            objetivo é criar um formulário de cadastro simples que permite<br> adicionar, editar e excluir entradas de
+            uma lista.</p>
     </nav>
+    <div class="paginaGuia">
+        <br>
+        <h2 style="margin-left: 38%;">HTML</h2>
+        <h3 style="margin-left: 10px;"><u>Estrutura do Código</u></h3>
+        <ul>
+            <p><u>&bull; HTML:</u> Defina uma estrutura básica da página, utilizando tags semânticas e elementos como
+                'nav', 'div', 'section'e 'footer'. O HTML também organiza o conteúdo, como o título, a barra de
+                navegação, e a lista de filmes.</p>
+            <p><u>&bull; CSS:</u> Estiliza a aparência da página.</p>
+            <p><u>&bull; JavaScript:</u> O JavaScript no projeto controla a barra de pesquisa e interações dinâmicas,
+                como filtrar os filmes conforme o usuário digital na barra de busca. Ele utiliza uma função simples para
+                ocultar ou mostrar os elementos com base no que o usuário está buscando.</p>
+        </ul>
+        <br>
+        <h3 style="margin-left: 10px;"><u>Análise do Código</u></h3>
+        <p style="margin-left: 36%;">Estrutura HTML</p>
+        <img style="width: 90%; margin-left: 21px; margin-right: 21px;" src="img/codeNetflixHtml.png">
+        <h3 style="margin-left: 10px;"><u>Detalhamento</u></h3>
+        <ul>
+            <p>&bull; NavBar : Um menu de navegação responsivo com opções como "Home", "Sobre" e "Contato". Essas opções
+                são criadas com a ajuda de listas não ordenadas ( 'ul') e elementos 'li'.</p>
+            <p>&bull; Seção de filmes : Uma grade flexível que organiza as pôsteres dos filmes em várias colunas. Cada
+                filme é encapsulado em um 'div' com uma imagem ( 'img'), e os links apontam para páginas individuais de
+                detalhes dos filmes.</p>
+        </ul>
+        <h2 style="margin-left: 38%;">CSS</h2>
+        <img style="width: 90%; margin-left: 21px; margin-right: 21px;" src="img/codeNetflixCss.png">
+        <ul>
+            <p>&bull; Background e cores : O fundo usa um gradiente linear em tons de preto e vermelho escuro, proporcionando um visual moderno e sonoro. Os textos são predominantemente brancos para criar um contraste forte.</p>
+            <p>&bull; Animações : Há uma animação aplicada ao título "ReidFlix", que desliza suavemente de uma posição inicial para o centro da página.</p>
+            <p>&bull; Responsividade : Através de consultas de mídia, a interface se adapta ao tamanho da tela. No caso de dispositivos móveis, a barra de navegação e o layout de filmes são reorganizados verticalmente para melhorar a usabilidade.</p>
+        </ul>
+        <h2 style="margin-left: 32%;">Função de Busca com JavaScript</h2>
+        <img style="width: 90%; margin-left: 21px;" src="img/codeNetflixJs.png">
+        <p style="margin-left: 5px;">Essa função filtra os filmes ao comparar o texto digitado na barra de busca com o nome dos filmes.</p>
+        <h2 style="text-align: center;">Estrutura Responsiva</h2>
+        <p style="margin-left: 5px;">O projeto é projetado para ser acessível em diferentes dispositivos, com diferentes resoluções de tela. Quando a tela é menor (por exemplo, em celulares), os filmes são apresentados em uma única coluna, e o layout da barra de navegação também é ajustado.</p>
+        <h2 style="text-align: center;">Conclusão</h2>
+        <p style="margin-left: 5px;">Este projeto serve como um ótimo exemplo de como criar uma página web interativa e visualmente atraente, usando apenas HTML, CSS e JavaScript. Além disso, demonstramos o uso de ferramentas modernas como o Bootstrap para agilizar a criação de componentes responsivos.</p>
+    </div>
 </body>
 
 </html>
