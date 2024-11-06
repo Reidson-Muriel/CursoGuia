@@ -20,9 +20,9 @@
             background-color: blue;
             color: #141212;
             border: 4px solid rgb(4, 4, 84);
-            border-radius:  0px 0px;
+            border-radius: 0px 0px;
             text-align: center;
-            
+
             padding: 32px;
         }
 
@@ -79,11 +79,14 @@
             background-repeat: no-repeat;
             background-position: center;
             width: 100%;
-            min-height: 200vh; /* Altura mínima para cobrir toda a tela */
+            min-height: 200vh;
+            /* Altura mínima para cobrir toda a tela */
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centraliza o conteúdo verticalmente */
-            align-items: center; /* Centraliza o conteúdo horizontalmente */
+            justify-content: center;
+            /* Centraliza o conteúdo verticalmente */
+            align-items: center;
+            /* Centraliza o conteúdo horizontalmente */
             opacity: 0.9;
             padding: 20px;
             background-color: black;
@@ -93,7 +96,8 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 20px; /* Ajuste de espaçamento para separar da nav */
+            margin-top: 20px;
+            /* Ajuste de espaçamento para separar da nav */
             position: relative;
             z-index: 1;
         }
@@ -147,7 +151,8 @@
             }
 
             section {
-                margin-top: 230px; /* Ajuste para melhorar a centralização */
+                margin-top: 230px;
+                /* Ajuste para melhorar a centralização */
             }
 
             section .page {
@@ -189,15 +194,9 @@
 <body>
     <nav class="nav">
         <h1>Aprenda com Projetos: Seu Guia de Programação</h1>
-<<<<<<< HEAD
         <img style="border: 1px darkgrey solid ;" src="img/icons.ico" alt="Reidson Muriel">
         <h2><span style="color: rgb(10, 217, 10);">Reidson</span> Muriel</h2>
         <p> Desenvolvedor de Software Jr </p>
-=======
-        <img style="border-color: 1px solid darkgray;" src="img/icons.ico" alt="Reidson Muriel">
-        <h2><span style="color: rgb(10, 217, 10);">Reidson</span> Muriel</h2>
-        <p>Desenvolvedor de Software Jr</p>
->>>>>>> a02b98afa20ea97f34ed0504be81a47e396dc0e0
         <div class="social">
             <ul>
                 <li>
@@ -206,7 +205,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.linkedin.com/in/reidson-muriel-alves-romão-da-silva-357b3a27a/?originalSubdomain=br">
+                    <a
+                        href="https://www.linkedin.com/in/reidson-muriel-alves-romão-da-silva-357b3a27a/?originalSubdomain=br">
                         <img src="img/linkedin.png" alt="LinkedIn">
                     </a>
                 </li>
@@ -228,7 +228,7 @@
                 </a>
                 <button onclick="cadastro()">Visualizar Guia Completo</button>
             </div>
-            
+
             <div class="page">
                 <h3>Clone Netflix</h3>
                 <a href="clone-netflix.html">
@@ -236,7 +236,7 @@
                 </a>
                 <button onclick="clonenetflix()">Visualizar Guia Completo</button>
             </div>
-            
+
             <div class="page">
                 <h3>Projeto-Portfolio</h3>
                 <a href="projeto-portfolio.html">
@@ -244,7 +244,7 @@
                 </a>
                 <button onclick="projetoPortfolio()">Visualizar Guia Completo</button>
             </div>
-            
+
             <div class="page">
                 <h3>Gerador-Senha</h3>
                 <a href="gerador-senha.html">
@@ -270,6 +270,10 @@
     function projetoPortfolio() {
         alert('Ótima escolha!');
         window.location.href = 'portfolioTutorial.html';
+    }
+    function geradorSenha() {
+        alert('Ótima escolha!');
+        window.location.href = 'geradorsenhaTutorial.html';
     }
 
     $('#curso').click(function () {

@@ -1,13 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/tela-clone-netflix.icon" type="image/x-icon">
+    <link rel="shortcut icon" href="img/tela_do_projeto.ico" type="image/x-icon">
     <title>Tutorial-Portfolio</title>
-
 </head>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav .title {
+        color: cadetblue;
+        animation: fadeInAndMove 3s ease-in-out infinite alternate;
+    }
+
+    .linguagem {
+        color: red;
+        animation: fadeInAndMove 3s ease-in-out infinite alternate;
+    }
+
+    .linguagemCss {
+        color: rgb(0, 153, 255);
+        animation: fadeInAndMove 3s ease-in-out infinite alternate;
+    }
+
+    .linguagemJs {
+        color: yellow;
+        animation: fadeInAndMove 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeInAndMove {
+        0% {
+            opacity: .2;
+            transform: translateY(0);
+        }
+
+        100% {
+            opacity: 4;
+            transform: translateY(0);
+        }
+    }
+</style>
+
 <body>
-    <
+    <nav>
+        <h2 style="margin-left: 0; text-align: center;">Como criar um <span class="title">projeto-Portfolio</span> em
+            <span class="linguagem">HTML</span> , <span class="linguagemCss">CSS</span> e <span
+                class="linguagemJs">Js</span>.
+        </h2>
+    </nav>
+    <div class="paginaGuia">
+        <br>
+        <h2 style="margin-left: 38%;">HTML</h2>
+        <h3 style="margin-left: 10px;"><u>Estrutura do Código</u></h3>
+        <img style="width: 90%; margin-left: 21px; margin-right: 21px;" src="img/telaprojetoportfoliocodeHtml.png">
+        <h3 style="margin-left: 10px;"><u>Detalhamento</u></h3>
+        <ul>
+            <p>&bull; head: Contém metadados, título e estilos CSS.</p>
+            <p>&bull; body: Onde o conteúdo visível do portfólio é definido.</p>
+            <p>&bull; div id="container": Um contêiner que centraliza o conteúdo.</p>
+            <p>&bull; div id="profile": Exibe a imagem do perfil e o nome do usuário.</p>
+            <p>&bull; div id="switch": Um botão para alternar entre modos claro e escuro.</p>
+            <p>&bull; ul: Lista de links para o portfólio e cursos.</p>
+            <p>&bull; div id="social-links": Links para redes sociais.</p>
+            <p>&bull; footer: Informações sobre direitos autorais.</p>
+        </ul>
+        <h2 style="margin-left: 38%;">CSS</h2>
+        <img style="width: 90%; margin-left: 21px; margin-right: 21px;" src="img/telaprojetoportfoliocodeCSS.png">
+        <ul>
+            <ul>
+                <p>&bull; Variáveis CSS: Define variáveis para cores, imagens de fundo e outros estilos.</p>
+                <p>&bull; Estilos gerais: Define estilos para todos os elementos, como fonte, cor de texto e margens.
+                </p>
+                <p>&bull; Estilos específicos: Define estilos para cada seção do portfólio, como o perfil, switch,
+                lista de links e redes sociais.</p>
+            </ul>
+            <h2 style="margin-left: 32%;">JavaScript</h2>
+        <img style="width: 90%; margin-left: 21px;" src="img/telaprojetoportfoliocodeJs.png">
+        <ul>
+            <p>&bull; toggleMode(): Função que alterna entre modos claro e escuro ao clicar no botão de switch.</p>
+            <p>&bull; classList.toggle('light') : Adiciona ou remove a classe light do elemento html..
+            </p>
+            <p>&bull; querySelector("#profile img"): Seleciona a imagem do perfil.</p>
+            <p>&bull; setAttribute('src', 'img/avatar-light.png'): Altera a imagem do perfil para a versão clara ou escura.</p>
+        </ul>
 </body>
+
 </html>

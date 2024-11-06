@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial-GeradorSenha</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav .title {
+        color: hsl(228, 100%, 50%);
+        animation: fadeInAndMove 5s ease-in-out infinite alternate;
+    }
+
+    .linguagem {
+        color: red;
+        animation: fadeInAndMove 5s ease-in-out infinite alternate;
+    }
+
+    .linguagemCss {
+        color: rgb(0, 153, 255);
+        animation: fadeInAndMove 5s ease-in-out infinite alternate;
+    }
+
+    .linguagemJs {
+        color: yellow;
+        animation: fadeInAndMove 5s ease-in-out infinite alternate;
+    }
+
+
+    @keyframes fadeInAndMove {
+        0% {
+            opacity: .2;
+            transform: translateY(0);
+        }
+
+        100% {
+            opacity: 4;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<body>
+    <nav>
+        <h2 style="margin-left: 0; text-align: center;">Como criar um <span class="title">Gerador-Senha</span> em <span
+                class="linguagem">HTML</span> , <span class="linguagemCss">CSS</span> e <span
+                class="linguagemJs">Js</span>.</h2>
+    </nav>
+    <h2 style="margin-left: 38%;">HTML</h2>
+    <h3 style="margin-left: 10px;"><u>Estrutura do Código</u></h3>
+    <img style="width: 100%; margin: auto;" src="img/telageradorsenhacodeHTML.png">
+    <h3 style="margin-left: 10px;">Detalhamento</h3>
+    <ul>
+        <p><u>&bull; !DOCTYPE html:</u> Declara que este é um documento HTML5.</p>
+        <p><u>&bull; html lang="pt-BR":</u> Define o idioma da página como português do Brasil.</p>
+        <p><u>&bull; head:</u> Contém metadados, como o título da página e links para arquivos CSS (neste caso, o
+            CSS está embutido).</p>
+        <p><u>&bull; body:</u> Contém o conteúdo visível da página.</p>
+        <p><u>&bull; div class="gerador":</u> Um contêiner para centralizar e organizar os
+            elementos do gerador de senhas.</p>
+        <p><u>&bull; h1>Gerador de Senha/h1:</u> Título da página.</p>
+        <p><u>&bull; label for="comprimento"Quantidade da Senha:/label:</u> Rótulo
+            para o campo de entrada que especifica o comprimento da senha.
+        </p>
+        <p><u>&bull; input type="number" id="comprimento" min="1"
+                placeholder="Digite de 1 a 20" style="text-align:
+                center;" /:</u> Campo de entrada onde o usuário pode digitar
+            o comprimento da senha desejada, com um valor mínimo de
+            1.</p>
+        <p><u>&bull; input type="checkbox" id="incluirNumeros":</u>
+            Caixa de seleção para incluir números na senha.
+        </p>
+        <p><u>&bull; input type="checkbox"
+                id="incluirSimbolos":</u> Caixa de seleção
+            para incluir símbolos na senha.</p>
+        <p><u>&bull; button
+                onclick="gerarSenha()">Gerar/button:</u>
+            Botão que chama a função
+            gerarSenha() quando clicado.</p>
+        <p><u>&bull; button
+                onclick="copiarSenha()">Copiar/button:</u>
+            Botão que chama a função
+            copiarSenha() quando
+            clicado.</p>
+        <p><u>&bull; div
+                id="resultado":</u>
+            Um contêiner
+            para exibir a
+            senha gerada.
+        </p>
+    </ul>
+
+    <br>
+    <h2 style="margin-left: 38%;">CSS</h2>
+    <h3 style="margin-left: 10px;"><u>Estrutura do Código</u></h3>
+    <img style="width: 70%; margin-left: 16%;" src="img/telageradorsenhacodeCSS.png">
+    <h3 style="margin-left: 10px;">Detalhamento</h3>
+    <ul>
+        <p><u>&bull;body:</u> Define a fonte, cor de fundo e centraliza o conteúdo na tela.</p>
+        <p><u>&bull;.gerador:</u> Estiliza o contêiner do gerador de senhas com fundo branco, padding, bordas
+            arredondadas e sombra.</p>
+        <p><u>&bull;h1:</u> Define o estilo do título.</p>
+        <p><u>&bull;input[type="number"], input[type="checkbox"]:</u> Adiciona margens para os campos de entrada e
+            caixas de seleção.</p>
+        <p><u>&bull;button:</u> Estiliza os botões, incluindo cores e efeitos de hover.</p>
+        <p><u>&bull;#resultado:</u> Estiliza a área onde a senha gerada é exibida.</p>
+    </ul>
+
+    <br>
+    <h2 style="margin-left: 38%;">JavaScript</h2>
+    <h3 style="margin-left: 10px;"><u>Estrutura do Código</u></h3>
+    <img style="width: 70%; margin-left: 16%;" src="img/telageradorsenhacodeJS.png">
+    <h3 style="margin-left: 10px;">Detalhamento</h3>
+    <ul>
+        <p><u>&bull;function gerarSenha():</u> Função que gera a senha com base nas opções selecionadas pelo usuário.</p>
+        <p><u>&bull;const comprimento = parseInt(document.getElementById('comprimento').value);:</u> Obtém o comprimento da senha a
+        partir do campo de entrada.</p>
+        <p><u>&bull;if (isNaN(comprimento) || comprimento > 20):</u> Verifica se o comprimento é um número válido e se não excede 20.</p>
+        <p><u>&bull;const incluirNumeros = document.getElementById('incluirNumeros').checked;:</u> Verifica se a opção de incluir
+        números está selecionada.</p>
+        <p><u>&bull;const incluirSimbolos = document.getElementById('incluirSimbolos').checked;:</u> Verifica se a opção de incluir
+        símbolos está selecionada.</p>
+        <p><u>&bull;let caracteres = "abcdefghijklnmpqrstuvwxzABCDEFGHIJKLNMPQRSTUVWXZ";:</u> Define os caracteres padrão da senha.</p>
+        <p><u>&bull;if (incluirNumeros) { caracteres += numeros; }:</u> Adiciona números aos caracteres se a opção estiver selecionada.</p>
+        <p><u>&bull;if (incluirSimbolos) { caracteres += simbolos; }:</u> Adiciona símbolos aos caracteres se a opção estiver
+        selecionada.</p>
+        <p><u>&bull;for (let i = 0; i < comprimento; i++) {:</u> Loop que gera a senha com o comprimento especificado.</p>
+            <p><u>&bull;document.getElementById('resultado').textContent=senha;:</u> Exibe a senha gerada na área de resultado.</p> 
+            <p><u>&bull;function copiarSenha():</u> Função que copia a senha gerada para a área de transferência.</p>
+            <p><u>&bull;navigator.clipboard.writeText(resultado):</u> Usa a API de clipboard para copiar a senha. </p>
+
+            </ul>
+</body>
+
+</html>
